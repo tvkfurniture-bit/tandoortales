@@ -2225,6 +2225,257 @@
   border-color: var(--gold-border) !important;
   color: var(--gold-primary) !important;
 }
+
+    /* ==========================================================================
+   MOBILE FIRST & RESPONSIVE PERFECTION (320px - 768px)
+   ========================================================================== */
+
+/* 1. Prevent Any Horizontal Scroll Globally */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden !important;
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* 2. iPhone Safe Area Support for Sticky Bar */
+body {
+  padding-bottom: calc(74px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-bottom: 0 !important;
+  }
+}
+
+/* 3. iOS Input Zoom Prevention (Inputs must be >= 16px) */
+input, select, textarea {
+  font-size: 16px !important;
+}
+
+/* 4. Mobile Navigation Header */
+@media (max-width: 768px) {
+  .site-nav {
+    height: 64px;
+  }
+  .nav-inner {
+    height: 64px;
+  }
+  .brand-emblem {
+    width: 36px;
+    height: 36px;
+  }
+  .brand-title {
+    font-size: 1.05rem !important;
+    letter-spacing: 0.1em !important;
+  }
+  .brand-subtitle {
+    font-size: 0.62rem !important;
+  }
+  .nav-actions .btn {
+    padding: 7px 12px !important;
+    font-size: 0.74rem !important;
+  }
+}
+
+/* 5. Fluid Responsive Hero Section */
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: 2rem !important;
+    padding-bottom: 2.75rem !important;
+  }
+  .hero-title {
+    font-size: clamp(1.9rem, 7.5vw, 2.5rem) !important;
+    line-height: 1.2 !important;
+  }
+  .hero-desc {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .hero-ctas {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px !important;
+  }
+  .hero-ctas .btn {
+    width: 100%;
+    padding: 13px 18px !important;
+  }
+  
+  /* Hero Slider on Mobile */
+  .hero-slider-container {
+    aspect-ratio: 16 / 11 !important;
+    max-height: 280px !important;
+    margin-top: 1.5rem;
+    border-radius: 10px !important;
+  }
+  .hero-slide-overlay {
+    padding: 1rem !important;
+  }
+  .hero-slide-title {
+    font-size: 1.15rem !important;
+  }
+  .slider-floating-badge {
+    top: 10px !important;
+    left: 10px !important;
+    padding: 4px 10px !important;
+    font-size: 0.7rem !important;
+  }
+  .slider-controls {
+    bottom: 10px !important;
+    right: 10px !important;
+  }
+  .slider-btn {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.75rem !important;
+  }
+  .slider-dots {
+    bottom: 14px !important;
+    left: 12px !important;
+  }
+}
+
+/* 6. Trust Strip 2x2 Grid for Mobile */
+@media (max-width: 768px) {
+  .trust-strip {
+    padding: 1.25rem 0 !important;
+  }
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  .trust-item {
+    padding: 8px 4px !important;
+  }
+  .trust-val {
+    font-size: 1.65rem !important;
+  }
+  .trust-label {
+    font-size: 0.78rem !important;
+  }
+  .trust-sub {
+    font-size: 0.68rem !important;
+  }
+}
+
+/* 7. Sticky Category Bar on Mobile */
+@media (max-width: 768px) {
+  .category-scroll-container {
+    top: 64px !important;
+    padding: 8px 0 !important;
+  }
+  .cat-btn {
+    padding: 6px 14px !important;
+    font-size: 0.74rem !important;
+  }
+}
+
+/* 8. Menu Items & Chinese Variants on Mobile */
+@media (max-width: 768px) {
+  .menu-category-block {
+    margin-bottom: 2.25rem !important;
+    scroll-margin-top: 120px !important;
+  }
+  .cat-title {
+    font-size: 1.35rem !important;
+  }
+  .cat-count {
+    font-size: 0.72rem !important;
+  }
+  .menu-item-row {
+    padding: 12px 14px !important;
+    gap: 10px !important;
+  }
+  .item-name {
+    font-size: 0.92rem !important;
+  }
+  .item-price {
+    font-size: 0.98rem !important;
+  }
+  
+  /* Make Chinese Multi-Protein Tags Wrap Cleanly */
+  .variant-item-card {
+    padding: 12px 14px !important;
+  }
+  .variant-header {
+    font-size: 1.05rem !important;
+    margin-bottom: 8px !important;
+  }
+  .variant-price-tags {
+    gap: 6px !important;
+  }
+  .variant-pill {
+    padding: 4px 8px !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+/* 9. Product Reel (Favourites) Mobile Polish */
+@media (max-width: 768px) {
+  .product-reel {
+    gap: 12px !important;
+    padding-bottom: 12px !important;
+  }
+  .product-reel-card {
+    flex: 0 0 240px !important;
+  }
+  .product-card-img-wrap {
+    height: 145px !important;
+  }
+  .product-card-body {
+    padding: 1rem !important;
+  }
+  .product-card-title {
+    font-size: 1.05rem !important;
+  }
+  .product-price-val {
+    font-size: 1.15rem !important;
+  }
+}
+
+/* 10. Forms, Cards & Modals on Mobile */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .section-padding {
+    padding-top: 2.75rem !important;
+    padding-bottom: 2.75rem !important;
+  }
+  .section-heading {
+    font-size: 1.95rem !important;
+  }
+  .reservation-card, .info-card, .sub-info-card, .intro-card {
+    padding: 1.25rem !important;
+    border-radius: 12px !important;
+  }
+  .reviews-rating-hero {
+    padding: 1.5rem 1.25rem !important;
+    width: 100%;
+  }
+  .big-score {
+    font-size: 3rem !important;
+  }
+  
+  /* Mobile Sticky Bottom Bar */
+  .mobile-sticky-bar {
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px)) !important;
+    height: auto !important;
+  }
+  .mobile-action-btn {
+    font-size: 0.68rem !important;
+  }
+  
+  /* Modal responsiveness */
+  .modal-box {
+    padding: 1.5rem 1.25rem !important;
+    max-width: 92vw !important;
+  }
+}
   </style>
 </head>
 <body>
@@ -4613,6 +4864,46 @@ if (reel && reelPrev && reelNext) {
     const walk = (x - startX) * 1.8;
     reel.scrollLeft = scrollLeft - walk;
   });
+}
+
+    /* ------------------------------------------------------------------------
+   TOUCH SWIPE SUPPORT FOR HERO SLIDER ON MOBILE
+   ------------------------------------------------------------------------ */
+const sliderEl = document.getElementById('heroSlider');
+if (sliderEl) {
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  sliderEl.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  sliderEl.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleHeroSwipe();
+  }, { passive: true });
+
+  function handleHeroSwipe() {
+    const swipeDistance = touchEndX - touchStartX;
+    if (Math.abs(swipeDistance) > 40) {
+      if (swipeDistance < 0) {
+        // Swiped Left -> Next Slide
+        nextSlide();
+      } else {
+        // Swiped Right -> Previous Slide
+        prevSlide();
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------
+   TOUCH MOMENTUM SCROLL FOR PRODUCT REEL
+   ------------------------------------------------------------------------ */
+const mobileReel = document.getElementById('productReel');
+if (mobileReel) {
+  // Enables smooth native iOS momentum scroll
+  mobileReel.style.webkitOverflowScrolling = 'touch';
 }
   </script>
 </body>
