@@ -47,59 +47,102 @@
 
   <style>
     /* ==========================================================================
-       CSS VARIABLES & THEME SETUP
-       Refined palette: Charcoal, warm ivory, deep terracotta, warm amber/copper
-       ========================================================================== */
-    :root {
-      --bg-dark: #121110;
-      --bg-dark-card: #1B1917;
-      --bg-dark-surface: #24211D;
-      --bg-light: #FAF7F2;
-      --bg-light-alt: #F3EFE8;
-      --text-light: #FBF8F3;
-      --text-muted: #B3AAA0;
-      --text-dark: #221F1B;
-      --text-dark-muted: #6B635B;
-      --terracotta: #C45525;
-      --terracotta-dark: #9F3E16;
-      --terracotta-glow: rgba(196, 85, 37, 0.18);
-      --saffron: #DE9338;
-      --saffron-subtle: #FDF4E7;
-      --copper: #B87B44;
-      --border-dark: rgba(222, 147, 56, 0.2);
-      --border-light: rgba(34, 31, 27, 0.1);
-      --shadow-soft: 0 10px 30px -10px rgba(0,0,0,0.4);
-      --radius-sm: 6px;
-      --radius-md: 12px;
-      --radius-lg: 20px;
-      --font-display: 'Prata', Georgia, serif;
-      --font-title: 'Cinzel', serif;
-      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+   ROYAL & PREMIER LUXURY DESIGN TOKENS
+   Imperial Obsidian, Royal Gold Foil & Velvet Warmth
+   ========================================================================== */
+:root {
+  --bg-dark: #090807;                 /* Imperial Obsidian */
+  --bg-dark-card: #13110E;            /* Velvet Charcoal */
+  --bg-dark-surface: #1B1814;         /* Rich Brass-toned Black */
+  --text-light: #FAF6ED;             /* Warm Royal Ivory */
+  --text-muted: #A89F91;              /* Muted Silk */
+  --gold-primary: #DFBA73;           /* 24k Royal Champagne Gold */
+  --gold-light: #F7E7C4;             /* Gold Leaf Highlight */
+  --gold-dark: #987232;              /* Burnished Antique Bronze */
+  --gold-glow: rgba(223, 186, 115, 0.22);
+  --gold-border: rgba(223, 186, 115, 0.32);
+  --gold-border-subtle: rgba(223, 186, 115, 0.14);
+  --crimson-accent: #8E2319;         /* Royal Mughal Crimson for subtle highlights */
+  --radius-sm: 4px;                  /* Sharp, tailored luxury corners */
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --font-display: 'Prata', 'Playfair Display', Georgia, serif;
+  --font-title: 'Cinzel', serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+/* Royal Gold Gradient Text */
+.gold-text {
+  background: linear-gradient(135deg, #FFF4D4 0%, #DFBA73 50%, #A47B34 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
 
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-      color-scheme: dark light;
-    }
+/* Subtle Golden Ambient Glow Behind Sections */
+.royal-glow {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(50px);
+  z-index: 0;
+}
 
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      font-family: var(--font-body);
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      padding-bottom: 74px; /* for mobile sticky navigation */
-    }
+/* Elegant Royal Ornamental Divider */
+.royal-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 0.6rem 0 1.25rem;
+  color: var(--gold-primary);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+}
 
+.royal-divider::before, .royal-divider::after {
+  content: '';
+  width: 45px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+}
+
+/* ==========================================================================
+   ROYAL BUTTONS & BADGES
+   ========================================================================== */
+.btn-primary {
+  background: linear-gradient(135deg, #E6C585 0%, #C5A059 60%, #997433 100%) !important;
+  color: #0A0907 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  font-size: 0.82rem !important;
+  border: 1px solid #FFE4A0 !important;
+  box-shadow: 0 4px 20px rgba(197, 160, 89, 0.28) !important;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #FFF0CC 0%, #DFBA73 60%, #A8813C 100%) !important;
+  box-shadow: 0 6px 26px rgba(223, 186, 115, 0.45) !important;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: rgba(27, 24, 20, 0.6) !important;
+  color: var(--gold-light) !important;
+  border: 1px solid var(--gold-border) !important;
+  backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-dark-surface) !important;
+  border-color: var(--gold-primary) !important;
+  color: #FFF !important;
+}
     @media (min-width: 992px) {
       body {
         padding-bottom: 0;
@@ -147,48 +190,58 @@
       }
     }
 
-    /* Section Header */
+    /* ==========================================================================
+       ROYAL & PREMIER SECTION HEADER
+       ========================================================================== */
     .section-eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
       font-family: var(--font-title);
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--saffron);
-      margin-bottom: 0.75rem;
+      color: var(--gold-primary);
+      margin-bottom: 0.85rem;
+      position: relative;
     }
 
-    .section-eyebrow::before, .section-eyebrow::after {
+    .section-eyebrow::before, 
+    .section-eyebrow::after {
       content: '';
       display: inline-block;
-      width: 24px;
+      width: 36px;
       height: 1px;
-      background: var(--copper);
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
     }
 
     .section-heading {
       font-family: var(--font-display);
-      font-size: 2.25rem;
+      font-size: 2.4rem;
       font-weight: 400;
-      line-height: 1.25;
+      line-height: 1.2;
       color: var(--text-light);
-      margin-bottom: 1rem;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.15rem;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.8), 0 0 30px rgba(223, 186, 115, 0.12);
     }
 
     @media (min-width: 768px) {
       .section-heading {
-        font-size: 2.85rem;
+        font-size: 3.1rem;
       }
     }
 
     .section-subtext {
       color: var(--text-muted);
       font-size: 1.05rem;
-      max-width: 620px;
+      line-height: 1.7;
+      max-width: 640px;
       margin-left: auto;
       margin-right: auto;
+      font-weight: 400;
+      letter-spacing: 0.01em;
     }
 
     .text-center {
@@ -2031,6 +2084,147 @@
   font-weight: 700;
   color: var(--saffron);
 }
+    /* ==========================================================================
+   ROYAL MENU & CARD UPGRADES
+   ========================================================================== */
+.site-nav {
+  background: rgba(9, 8, 7, 0.94) !important;
+  border-bottom: 1px solid var(--gold-border-subtle) !important;
+}
+
+.brand-emblem {
+  background: radial-gradient(circle at center, #261E14 0%, #0D0B08 100%) !important;
+  border: 1px solid var(--gold-primary) !important;
+  box-shadow: 0 0 16px rgba(223, 186, 115, 0.25) !important;
+}
+
+.brand-title {
+  color: var(--text-light) !important;
+  letter-spacing: 0.16em !important;
+}
+
+.brand-subtitle {
+  color: var(--gold-primary) !important;
+}
+
+/* Category Tabs as Royal Metallic Badges */
+.category-scroll-container {
+  background: rgba(9, 8, 7, 0.96) !important;
+  border-bottom: 1px solid var(--gold-border-subtle) !important;
+}
+
+.cat-btn {
+  background: #13110E !important;
+  color: var(--text-muted) !important;
+  border: 1px solid var(--gold-border-subtle) !important;
+  font-family: var(--font-title) !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.08em !important;
+}
+
+.cat-btn:hover {
+  color: var(--gold-light) !important;
+  border-color: var(--gold-border) !important;
+}
+
+.cat-btn.active {
+  background: linear-gradient(135deg, #E6C585, #C5A059) !important;
+  color: #0C0A08 !important;
+  font-weight: 700 !important;
+  border-color: #FFE5A3 !important;
+  box-shadow: 0 4px 15px rgba(223, 186, 115, 0.25) !important;
+}
+
+/* Menu Item Rows with Gold-Inlaid Borders */
+.menu-item-row {
+  background: #13110E !important;
+  border: 1px solid var(--gold-border-subtle) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 16px 20px !important;
+}
+
+.menu-item-row:hover {
+  background: #1A1713 !important;
+  border-color: var(--gold-border) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(223, 186, 115, 0.08) !important;
+}
+
+.cat-title {
+  font-family: var(--font-display) !important;
+  color: var(--gold-light) !important;
+  letter-spacing: 0.02em;
+}
+
+.item-name {
+  color: var(--text-light) !important;
+  font-weight: 600 !important;
+}
+
+.item-price {
+  color: var(--gold-primary) !important;
+  font-family: var(--font-display) !important;
+  font-size: 1.15rem !important;
+}
+
+/* Chinese Variant Dishes */
+.variant-item-card {
+  background: #13110E !important;
+  border: 1px solid var(--gold-border-subtle) !important;
+}
+
+.variant-item-card:hover {
+  border-color: var(--gold-border) !important;
+}
+
+.variant-pill {
+  background: #0B0A08 !important;
+  border: 1px solid var(--gold-border-subtle) !important;
+}
+
+.variant-pill .protein-price {
+  color: var(--gold-primary) !important;
+}
+
+/* Favourites Product Cards */
+.product-reel-card {
+  background: #13110E !important;
+  border: 1px solid var(--gold-border-subtle) !important;
+}
+
+.product-reel-card:hover {
+  border-color: var(--gold-border) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 20px rgba(223, 186, 115, 0.15) !important;
+}
+
+.product-price-val {
+  color: var(--gold-primary) !important;
+  font-family: var(--font-display) !important;
+}
+
+/* Trust Strip and Value Cards */
+.trust-strip {
+  background: #0E0C0A !important;
+  border-bottom: 1px solid var(--gold-border-subtle) !important;
+}
+
+.trust-val {
+  color: var(--gold-primary) !important;
+}
+
+.value-card, .info-card, .sub-info-card, .reservation-card, .intro-card {
+  background: #13110E !important;
+  border: 1px solid var(--gold-border-subtle) !important;
+}
+
+.value-card:hover {
+  border-color: var(--gold-border) !important;
+}
+
+.value-icon-box {
+  background: rgba(223, 186, 115, 0.08) !important;
+  border-color: var(--gold-border) !important;
+  color: var(--gold-primary) !important;
+}
   </style>
 </head>
 <body>
@@ -2082,148 +2276,110 @@
     <!-- ==========================================================================
          PAGE 1: HERO SECTION
          ========================================================================== -->
-    <section class="hero-section" id="hero">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-content">
-            <div class="hero-location-badge">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
-              <span>BC Road, beside Sadar Thana, Khosbagan</span>
-            </div>
-            
-            <h1 class="hero-title">
-              Flavours Worth <span>Gathering For.</span>
-            </h1>
+    <section class="hero-section" id="hero" style="background: radial-gradient(circle at 75% 30%, rgba(223, 186, 115, 0.12) 0%, transparent 60%), #090807; position: relative;">
+  <div class="container" style="position: relative; z-index: 1;">
+    <div class="hero-grid">
+      <div class="hero-content">
+        
+        <!-- Royal Location Crest -->
+        <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(223, 186, 115, 0.07); border: 1px solid var(--gold-border); border-radius: 4px; padding: 6px 14px; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-primary); margin-bottom: 1.5rem;">
+          <span style="color: var(--gold-primary);">✦</span>
+          <span>Khosbagan · Bardhaman · Beside Sadar Thana</span>
+        </div>
+        
+        <h1 class="hero-title" style="font-family: var(--font-display); line-height: 1.15; font-size: 3.4rem;">
+          The Royal Art of <br>
+          <span class="gold-text">Tandoor &amp; Fine Flavours</span>
+        </h1>
 
-            <p class="hero-desc">
-              A refined Indian and Chinese dining experience in the heart of Bardhaman. From aromatic slow-cooked biryanis and clay-oven tandoori breads to savoury Chinese classics and handcrafted desserts.
-            </p>
+        <div class="royal-divider" style="justify-content: flex-start; margin: 1rem 0 1.5rem;">
+          <span>✦ ❖ ✦</span>
+        </div>
 
-            <div class="hero-ctas">
-              <a href="#menu" class="btn btn-primary">
-                <span>Explore Full Menu</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-              <a href="#reservation" class="btn btn-secondary">
-                <span>Reserve a Table</span>
-              </a>
-              <a href="tel:+917478080108" class="btn btn-secondary" aria-label="Call restaurant directly">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                <span>Call Now</span>
-              </a>
-            </div>
+        <p class="hero-desc" style="color: var(--text-muted); font-size: 1.08rem; line-height: 1.75; max-width: 580px; margin-bottom: 2.25rem;">
+          Immerse yourself in authentic Indian gastronomic traditions and savoury Chinese wok creations. Prepared with precision clay ovens, fragrant spices, and distinguished hospitality.
+        </p>
 
-            <div class="hero-meta-strip">
-              <div class="hero-meta-item">
-                <span class="rating-badge">★ 4.7</span>
-                <span>Google Verified</span>
-              </div>
-              <div class="hero-meta-item">
-                <span><strong>405</strong> Reviews</span>
-              </div>
-              <div class="hero-meta-item">
-                <span>Dine-In · Takeaway · Delivery</span>
-              </div>
-            </div>
+        <div class="hero-ctas">
+          <a href="#menu" class="btn btn-primary">
+            <span>Explore Royal Menu</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+          <a href="#reservation" class="btn btn-secondary">
+            <span>Reserve Table</span>
+          </a>
+          <a href="tel:+917478080108" class="btn btn-secondary" aria-label="Direct Phone Line">
+            <span>Call +91 74780 80108</span>
+          </a>
+        </div>
+
+        <!-- Trust Signals styled like a luxury medal strip -->
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px; padding-top: 1.75rem; border-top: 1px solid var(--gold-border-subtle); font-size: 0.88rem;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="background: linear-gradient(135deg, #DFBA73, #987232); color: #0A0907; font-weight: 800; font-size: 0.85rem; padding: 3px 8px; border-radius: 3px;">4.7 ★</span>
+            <span style="color: var(--text-light); font-weight: 600;">Google Verified</span>
           </div>
-
-          <!-- Abstract Visual Composition (No fabricated food photos) -->
-          <!-- Interactive Hero Visual Reel -->
-<div class="hero-slider-container" id="heroSlider" aria-label="Restaurant culinary showcase">
-  <div class="slider-floating-badge">
-    <span>🔥 Fresh Tandoor &amp; Clay Oven</span>
-  </div>
-
-  <div class="hero-slider-track" id="heroSliderTrack">
-    <!-- Slide 1 -->
-    <div class="hero-slide">
-      <img class="hero-slide-img" 
-           src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?q=80&w=900&auto=format&fit=crop" 
-           alt="Tandoori chicken sizzling directly from clay tandoor" 
-           loading="eager">
-      <div class="hero-slide-overlay">
-        <span class="hero-slide-tag">Authentic Clay Oven</span>
-        <h3 class="hero-slide-title">Tandoor Chicken &amp; Reshmi Kebabs</h3>
-      </div>
-    </div>
-
-    <!-- Slide 2 -->
-    <div class="hero-slide">
-      <img class="hero-slide-img" 
-           src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=900&auto=format&fit=crop" 
-           alt="Rich simmering Indian curry in traditional handi bowl" 
-           loading="lazy">
-      <div class="hero-slide-overlay">
-        <span class="hero-slide-tag">Slow-Cooked Specials</span>
-        <h3 class="hero-slide-title">Mutton Handi &amp; Rich Gravies</h3>
-      </div>
-    </div>
-
-    <!-- Slide 3 -->
-    <div class="hero-slide">
-      <img class="hero-slide-img" 
-           src="https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=900&auto=format&fit=crop" 
-           alt="Freshly baked artisan garlic naan brushed with butter" 
-           loading="lazy">
-      <div class="hero-slide-overlay">
-        <span class="hero-slide-tag">Clay Oven Breads</span>
-        <h3 class="hero-slide-title">Garlic &amp; Cheese Naan Fresh from Tandoor</h3>
-      </div>
-    </div>
-
-    <!-- Slide 4 -->
-    <div class="hero-slide">
-      <img class="hero-slide-img" 
-           src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=900&auto=format&fit=crop" 
-           alt="Handcrafted Indian desserts and signature coolers" 
-           loading="lazy">
-      <div class="hero-slide-overlay">
-        <span class="hero-slide-tag">Sweet Endings</span>
-        <h3 class="hero-slide-title">Hot Gulab Jamun &amp; Virgin Mojito</h3>
-      </div>
-    </div>
-  </div>
-
-  <!-- Navigation Dots -->
-  <div class="slider-dots" id="heroSliderDots">
-    <div class="slider-dot active" data-index="0"></div>
-    <div class="slider-dot" data-index="1"></div>
-    <div class="slider-dot" data-index="2"></div>
-    <div class="slider-dot" data-index="3"></div>
-  </div>
-
-  <!-- Controls -->
-  <div class="slider-controls">
-    <button class="slider-btn" id="heroPrevBtn" aria-label="Previous slide">❮</button>
-    <button class="slider-btn" id="heroNextBtn" aria-label="Next slide">❯</button>
-  </div>
-</div>
-            <div class="visual-brand-tag">TANDOOR TALES</div>
-            <div class="visual-location-sub">Bardhaman, West Bengal</div>
-
-            <div class="visual-features-grid">
-              <div class="visual-feature-pill">
-                <span class="feat-label">Experience</span>
-                <span class="feat-val">Casual &amp; Cosy</span>
-              </div>
-              <div class="visual-feature-pill">
-                <span class="feat-label">Crowd</span>
-                <span class="feat-val">Family &amp; Groups</span>
-              </div>
-              <div class="visual-feature-pill">
-                <span class="feat-label">Parking</span>
-                <span class="feat-val">Free On-site</span>
-              </div>
-              <div class="visual-feature-pill">
-                <span class="feat-label">Payments</span>
-                <span class="feat-val">UPI / Cards / NFC</span>
-              </div>
-            </div>
+          <div style="color: var(--gold-primary); font-weight: 500;">
+            ✦ <strong>405</strong> Reviews
+          </div>
+          <div style="color: var(--text-muted);">
+            Dine-In · Takeaway · Delivery
           </div>
         </div>
       </div>
-    </section>
 
+      <!-- Royal Arched Image Reel -->
+      <div class="hero-slider-container" id="heroSlider" style="border: 1px solid var(--gold-border); box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 35px var(--gold-glow); border-radius: 14px;">
+        <div class="slider-floating-badge" style="border-color: var(--gold-border); color: var(--gold-light);">
+          <span>✦ Authentic Clay Tandoor</span>
+        </div>
+
+        <div class="hero-slider-track" id="heroSliderTrack">
+          <div class="hero-slide">
+            <img class="hero-slide-img" src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?q=80&w=900&auto=format&fit=crop" alt="Royal Tandoor Chicken">
+            <div class="hero-slide-overlay">
+              <span class="hero-slide-tag" style="color: var(--gold-primary);">Signature Grill</span>
+              <h3 class="hero-slide-title">Tandoori Chicken &amp; Reshmi Kebabs</h3>
+            </div>
+          </div>
+          <div class="hero-slide">
+            <img class="hero-slide-img" src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=900&auto=format&fit=crop" alt="Simmered Mutton Handi">
+            <div class="hero-slide-overlay">
+              <span class="hero-slide-tag" style="color: var(--gold-primary);">Clay Pot Perfection</span>
+              <h3 class="hero-slide-title">Mutton Handi &amp; Rich Gravies</h3>
+            </div>
+          </div>
+          <div class="hero-slide">
+            <img class="hero-slide-img" src="https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=900&auto=format&fit=crop" alt="Clay Oven Naan">
+            <div class="hero-slide-overlay">
+              <span class="hero-slide-tag" style="color: var(--gold-primary);">Artisan Clay Breads</span>
+              <h3 class="hero-slide-title">Butter Garlic &amp; Cheese Naan</h3>
+            </div>
+          </div>
+          <div class="hero-slide">
+            <img class="hero-slide-img" src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=900&auto=format&fit=crop" alt="Royal Desserts">
+            <div class="hero-slide-overlay">
+              <span class="hero-slide-tag" style="color: var(--gold-primary);">Sweet Confections</span>
+              <h3 class="hero-slide-title">Hot Gulab Jamun &amp; Coolers</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-dots" id="heroSliderDots">
+          <div class="slider-dot active" data-index="0" style="background: var(--gold-primary);"></div>
+          <div class="slider-dot" data-index="1"></div>
+          <div class="slider-dot" data-index="2"></div>
+          <div class="slider-dot" data-index="3"></div>
+        </div>
+
+        <div class="slider-controls">
+          <button class="slider-btn" id="heroPrevBtn" aria-label="Previous">❮</button>
+          <button class="slider-btn" id="heroNextBtn" aria-label="Next">❯</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     <!-- ==========================================================================
          TRUST STRIP (FACTUAL DATA ONLY)
          ========================================================================== -->
